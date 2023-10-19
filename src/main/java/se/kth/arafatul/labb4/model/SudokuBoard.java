@@ -130,12 +130,14 @@ public class SudokuBoard {
 
         for (int row = 0; row < SudokuUtilities.GRID_SIZE; row++) {
             for (int col = 0; col < SudokuUtilities.GRID_SIZE; col++) {
-                Box box = this.board[row][col];
-//                copy[row][col] = new Box(box.getVisibility(), box.getCorrectValue());
-                copy[row][col] = box;
+                copy[row][col] = this.board[row][col];
             }
         }
 
         return copy;
+    }
+
+    public void setBoard(Box[][] board){
+        this.board = board;
     }
 }

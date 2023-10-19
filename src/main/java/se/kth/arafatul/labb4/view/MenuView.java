@@ -6,6 +6,8 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import se.kth.arafatul.labb4.controller.SudokuController;
 
+import java.io.IOException;
+
 public class MenuView {
     private MenuBar menuBar;
     private SudokuController controller;
@@ -20,6 +22,8 @@ public class MenuView {
         MenuItem saveGame = new MenuItem("Save game");
         MenuItem exitGame = new MenuItem("Exit");
 
+        loadGame.addEventHandler(ActionEvent.ACTION, e -> controller.onLoadFile());
+        saveGame.addEventHandler(ActionEvent.ACTION, e -> controller.onSaveFile());
         exitGame.addEventHandler(ActionEvent.ACTION, e -> controller.handleExit());
 
         fileMenu.getItems().addAll(loadGame, saveGame, exitGame);
